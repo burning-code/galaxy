@@ -1,6 +1,6 @@
-##Developer Guide
+## Developer Guide
 
-####Start Application
+#### Start Application
 
 The application is bootstrapped with [create-react-app](https://github.com/facebook/create-react-app), to start the application, run:
 
