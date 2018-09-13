@@ -1,6 +1,6 @@
-##Developer Guide
+## Developer Guide
 
-####Getting Start
+#### Getting Start
 To run the application, the first step would be install all npm packages:
 
 ```sh
