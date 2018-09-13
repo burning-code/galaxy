@@ -1,0 +1,16 @@
+{
+  "customers": [
+    { "id": 1, "name": "Mercury", "address": "Milky Way", "phone": "02102110212", "email": "mercury@milkyway.com", "status": "prospective", "created": "1534442400" }
+  ],
+  "status": [
+    { "id": 1, "status": "prospective" },
+    { "id": 2, "status": "current" },
+    { "id": 3, "status": "non-active" }
+  ],
+  "notes": [
+    {"id": 1, "note": "something", "customer_id": 1, "author_id": 1, "created": "1534442400"}
+  ],
+  "users": [
+    {"id": 1, "username": "jared.li", "password": "test123!", "avatar": "jared.li.png"}
+  ]
+}
