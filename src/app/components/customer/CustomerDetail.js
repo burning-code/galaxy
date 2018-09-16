@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {_} from '../../core'
+import {_, moment} from '../../core'
 import CustomerStatusSelector from './CustomerStatusSelector'
 import CustomerNotesContainer from './CustomerNotesContainer'
 
@@ -55,6 +55,9 @@ class CustomerDetail extends Component {
                                     </div>
                                 )
                             }
+                            <div className="customer-detail-block">
+                                <label>Created</label>{moment(customer.created).format('MM/DD/YYYY HH:mm')}
+                            </div>
                             <div className="customer-detail-block">
                                 <label>Status</label>
                                 <CustomerStatusSelector

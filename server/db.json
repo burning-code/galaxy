@@ -96,7 +96,7 @@
       "address": "371 Milky Way",
       "phone": "02102110213",
       "email": "mars@milkyway.com",
-      "status": "NON_ACTIVE",
+      "status": "CURRENT",
       "created": 1534442400
     }
   ],
@@ -289,6 +289,20 @@
       "authorId": 1,
       "created": 1537082473529,
       "id": 27
+    },
+    {
+      "text": "Includes over 250 glyphs in font format from the Glyphicon Halflings set. Glyphicons Halflings are normally not available for free, but their creator has made them available for Bootstrap free of cost. As a thank you, we only ask that you include a link back to Glyphicons whenever possible.",
+      "customerId": 11,
+      "authorId": 1,
+      "created": 1537094883541,
+      "id": 28
+    },
+    {
+      "text": "11111",
+      "customerId": 11,
+      "authorId": 1,
+      "created": 1537095268106,
+      "id": 29
     }
   ],
   "users": [

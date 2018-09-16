@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import moment from 'moment'
-import {_} from '../../core'
+import {_, moment} from '../../core'
 import {CustomerBL} from '../../helpers'
 import {Pagination} from "../common";
 

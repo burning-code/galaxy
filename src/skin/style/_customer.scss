@@ -3,9 +3,13 @@
   font-size: 13px;
 }
 .customer-filter {
+  @media (min-width: $screen-sm-min) {
+    margin: $spacing-md 0;
+  }
+
   border: 1px solid $table-border-color;
   padding: $spacing-md;
-  margin: $spacing-md 0;
+  margin-bottom: $spacing-md;
   border-radius: $border-radius-base;
   @include make-sm-column(12, 24);
 
@@ -21,13 +25,19 @@
       margin-bottom: $spacing-sm;
     }
   }
+  @include clearfix;
 }
 .customer-grid {
+  &.narrow {
+    display: none;
+  }
+
   @media (min-width: $screen-sm-min) {
     float: left;
     width: 100%;
 
     &.narrow {
+      display: block;
       width: 32%;
     }
   }
@@ -47,12 +57,23 @@
       cursor: pointer;
     }
 
-    th:first-child {
-      width: 160px;
+    @media (min-width: $screen-sm-min) {
+      th:first-child {
+        width: 160px;
+      }
+
+      th:last-child, td:last-child {
+        display: table-cell;
+      }
     }
 
     th:last-child {
+      display: none;
       cursor: text;
+    }
+
+    td:last-child {
+      display: none;
     }
 
     .asc:after {
@@ -127,7 +148,12 @@
 
   .customer-detail-block {
     @include make-sm-column(6);
-    padding-right: $spacing-md;
+    position: relative;
+    float: left;
+    width: 50%;
+    min-height: 1px;
+    padding-left:  ($grid-gutter-width / 2);
+    padding-right: ($grid-gutter-width / 2);
     font-weight: 300;
     label {
       display: block;
