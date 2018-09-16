@@ -25,10 +25,6 @@ class NoteList extends Component {
             </li>
         ));
     }
-
-    formatCreatedTime() {
-
-    }
 }
 
 export default NoteList
