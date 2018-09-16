@@ -1,1 +1,5 @@
-export * as CustomerBL from './CustomerBL'
+import * as CustomerBL from './CustomerBL'
+
+export {
+    CustomerBL
+}
