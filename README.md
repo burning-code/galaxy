@@ -20,3 +20,46 @@ npm start
 ```
 Then open [http://localhost:3000/](http://localhost:3000/) to see the application.<br>
 When you’re ready to deploy to production, create a minified bundle with `npm run build`.
+
+#### Store Payload
+```json
+{
+	"customers": {
+		"items": [{
+			"id": 1,
+			"name": "Mars",
+			"phone": "",
+			"address": "",
+			"status": "PROSPECTIVE",
+			"created": 1534442400
+		}],
+		"pagination": {
+			"page": 1,
+			"limit": 20
+		},
+		"isFetching": false,
+		"selected": null
+	},
+	"notes": {
+		"customerId": 1,
+		"items": [{
+			"id": 1,
+			"text": "someting is happening",
+			"author": {
+				"id": 1,
+				"name": "Jared Li"
+			},
+			"created": 1534442400
+		}],
+		"pagination": {
+			"page": 1,
+			"limit": 20
+		},
+		"isFetching": false
+	},
+	"user": {
+		"id": 1,
+		"name": "Jared Li"
+	}
+}
+```

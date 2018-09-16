@@ -1,16 +1,303 @@
 {
   "customers": [
-    { "id": 1, "name": "Mercury", "address": "Milky Way", "phone": "02102110212", "email": "mercury@milkyway.com", "status": "prospective", "created": "1534442400" }
-  ],
-  "status": [
-    { "id": 1, "status": "prospective" },
-    { "id": 2, "status": "current" },
-    { "id": 3, "status": "non-active" }
+    {
+      "id": 1,
+      "name": "Mercury",
+      "address": "335 Milky Way",
+      "phone": "02102110211",
+      "email": "mercury@milkyway.com",
+      "status": "NON_ACTIVE",
+      "created": 1534442400
+    },
+    {
+      "id": 2,
+      "name": "Venus",
+      "address": "264 Milky Way",
+      "phone": "02102110212",
+      "email": "venus@milkyway.com",
+      "status": "CURRENT",
+      "created": 1534442400
+    },
+    {
+      "id": 3,
+      "name": "Mars",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "NON_ACTIVE",
+      "created": 1534442400
+    },
+    {
+      "id": 4,
+      "name": "Mars1",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "NON_ACTIVE",
+      "created": 1534442400
+    },
+    {
+      "id": 5,
+      "name": "Mars2",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "NON_ACTIVE",
+      "created": 1534442400
+    },
+    {
+      "id": 6,
+      "name": "Mars3",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "CURRENT",
+      "created": 1534442400
+    },
+    {
+      "id": 7,
+      "name": "Mars4",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "NON_ACTIVE",
+      "created": 1534442400
+    },
+    {
+      "id": 8,
+      "name": "Mars5",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "NON_ACTIVE",
+      "created": 1534442400
+    },
+    {
+      "id": 9,
+      "name": "Mars6",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "NON_ACTIVE",
+      "created": 1534442400
+    },
+    {
+      "id": 10,
+      "name": "Mars7",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "CURRENT",
+      "created": 1534442400
+    },
+    {
+      "id": 11,
+      "name": "Mars8",
+      "address": "371 Milky Way",
+      "phone": "02102110213",
+      "email": "mars@milkyway.com",
+      "status": "NON_ACTIVE",
+      "created": 1534442400
+    }
   ],
   "notes": [
-    {"id": 1, "note": "something", "customer_id": 1, "author_id": 1, "created": "1534442400"}
+    {
+      "id": 1,
+      "text": "something 1",
+      "customerId": 1,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 2,
+      "text": "something 2",
+      "customerId": 1,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 3,
+      "text": "something 3",
+      "customerId": 1,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 4,
+      "text": "something 4",
+      "customerId": 1,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 5,
+      "text": "something 5",
+      "customerId": 1,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 6,
+      "text": "something 6",
+      "customerId": 1,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 7,
+      "text": "something 7",
+      "customerId": 1,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 8,
+      "text": "something 8",
+      "customerId": 2,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 9,
+      "text": "something 9",
+      "customerId": 2,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "id": 10,
+      "text": "something 10",
+      "customerId": 2,
+      "authorId": 1,
+      "created": 1534442400
+    },
+    {
+      "text": "aaaaa",
+      "authorId": 1,
+      "created": 1536970383762,
+      "customerId": 1,
+      "id": 11
+    },
+    {
+      "text": "bbbb",
+      "authorId": 1,
+      "created": 1536970415535,
+      "customerId": 1,
+      "id": 12
+    },
+    {
+      "text": "cccc",
+      "authorId": 1,
+      "created": 1536970454883,
+      "customerId": 1,
+      "id": 13
+    },
+    {
+      "text": "3333",
+      "authorId": 1,
+      "created": 1536974768015,
+      "customerId": 3,
+      "id": 14
+    },
+    {
+      "text": "bbbbb",
+      "authorId": 1,
+      "created": 1536974919644,
+      "customerId": 1,
+      "id": 15
+    },
+    {
+      "text": "zzzzz",
+      "authorId": 1,
+      "created": 1536974941436,
+      "customerId": 1,
+      "id": 16
+    },
+    {
+      "text": "bbb",
+      "customerId": 1,
+      "authorId": 1,
+      "created": 1536985114218,
+      "id": 17
+    },
+    {
+      "text": "second",
+      "customerId": 2,
+      "authorId": 1,
+      "created": 1536985153077,
+      "id": 18
+    },
+    {
+      "text": "444",
+      "customerId": 3,
+      "authorId": 1,
+      "created": 1537009467714,
+      "id": 19
+    },
+    {
+      "text": "5555",
+      "customerId": 3,
+      "authorId": 1,
+      "created": 1537009480911,
+      "id": 20
+    },
+    {
+      "text": "zzz",
+      "customerId": 10,
+      "authorId": 1,
+      "created": 1537009911551,
+      "id": 21
+    },
+    {
+      "text": "xxxx",
+      "customerId": 10,
+      "authorId": 1,
+      "created": 1537010007459,
+      "id": 22
+    },
+    {
+      "text": "zzz",
+      "customerId": 11,
+      "authorId": 1,
+      "created": 1537057617971,
+      "id": 23
+    },
+    {
+      "text": "asdfds",
+      "customerId": 11,
+      "authorId": 1,
+      "created": 1537057624895,
+      "id": 24
+    },
+    {
+      "text": "A remarkable exploration of the world of dataviz possibilities with D3.",
+      "customerId": 11,
+      "authorId": 1,
+      "created": 1537061593395,
+      "id": 25
+    },
+    {
+      "text": "This book is required reading for anyone looking to get using D3. A mandatory introduction to a very complex and powerful library.",
+      "customerId": 11,
+      "authorId": 1,
+      "created": 1537061697543,
+      "id": 26
+    },
+    {
+      "text": "fsdfsdafsdf",
+      "customerId": 10,
+      "authorId": 1,
+      "created": 1537082473529,
+      "id": 27
+    }
   ],
   "users": [
-    {"id": 1, "username": "jared.li", "password": "test123!", "avatar": "jared.li.png"}
+    {
+      "id": 1,
+      "username": "jared.li",
+      "displayName": "Jared Li",
+      "password": "test123!",
+      "avatar": "jared.li.png"
+    }
   ]
 }

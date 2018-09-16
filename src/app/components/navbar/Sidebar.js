@@ -16,7 +16,7 @@ class Sidebar extends Component {
                         <NavItem eventKey={"home"} href="/">
                             Home
                         </NavItem>
-                        <NavItem eventKey={"customers"} href="/customers">
+                        <NavItem eventKey={"customer"} href="/customer">
                             Customers
                         </NavItem>
                     </Nav>

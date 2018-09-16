@@ -1,48 +1,48 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Pagination} from '../common'
+import { Route } from 'react-router-dom'
 import {CustomerAction, NoteAction} from '../../store'
-import CustomersGrid from './CustomersGrid'
-import CustomersFilter from './CustomersFilter'
-import Customer from './Customer'
-import CustomerNotesContainer from "./CustomerNotesContainer";
+import CustomerGrid from './CustomerGrid'
+import CustomerFilter from './CustomerFilter'
+import CustomerDetail from './CustomerDetail'
 
-class CustomersContainer extends Component {
-
+class CustomerContainer extends Component {
     componentDidMount() {
         const { dispatch, pagination, sorts, filters } = this.props;
         dispatch(CustomerAction.fetchCustomers(pagination, sorts, filters))
     }
 
     render() {
-        const { selectedCustomer, items: customers, columns, pagination, sorts, filters } = this.props;
+        const { selectedCustomer, showCustomerDetail: narrow, items: customers, columns, pagination, sorts, filters } = this.props;
 
         return (
-            <div>
-                <div>
-                    <CustomersFilter
-                        filters={filters}
-                        handleFilterCustomers={this.handleFilterCustomers}
-                    />
-                </div>
-                <div>
-                    <CustomersGrid
-                        sorts={sorts}
-                        columns={columns}
-                        customers={customers}
-                        selectedCustomer={selectedCustomer}
-                        handleSelectCustomer={this.handleSelectCustomer}
-                        handleSortCustomers={this.handleSortCustomers}
-                    />
-                    <Pagination pagination={pagination} handlePagination={this.handlePagination} size={5}/>
-                </div>
-                <div>
-                    <Customer
-                        customer={selectedCustomer}
-                        handleChangeCustomerStatus={this.handleChangeCustomerStatus}
-                    />
-                    <CustomerNotesContainer customer={selectedCustomer}/>
-                </div>
+            <div className="customer-container">
+                <CustomerFilter
+                    filters={filters}
+                    handleFilterCustomers={this.handleFilterCustomers}
+                />
+                <CustomerGrid
+                    narrow={narrow}
+                    sorts={sorts}
+                    columns={columns}
+                    customers={customers}
+                    selectedCustomer={selectedCustomer}
+                    pagination={pagination}
+                    handleSelectCustomer={this.handleSelectCustomer}
+                    handleSortCustomers={this.handleSortCustomers}
+                    handlePagination={this.handlePagination}
+                />
+                <Route path="/customer/:customerId" component={(props) => {
+                    return (
+                        <CustomerDetail
+                            {...props}
+                            customer={selectedCustomer}
+                            handleChangeCustomerStatus={this.handleChangeCustomerStatus}
+                            loadSelectedCustomer={this.loadSelectedCustomer}
+                            unloadSelectedCustomer={this.unloadSelectedCustomer}
+                        />
+                    )
+                }} />
             </div>
         )
     }
@@ -57,11 +57,13 @@ class CustomersContainer extends Component {
     };
 
     handleSelectCustomer = (customerId) => {
-        const { dispatch, selectedCustomer } = this.props;
+        const { history, match, dispatch, selectedCustomer } = this.props;
         if(!selectedCustomer || customerId !== selectedCustomer.id) {
             dispatch(CustomerAction.selectCustomer(customerId));
             dispatch(NoteAction.fetchNotes(customerId, NoteAction.DEFAULT_PAGINATION))
         }
+
+        history.push(`${match.path}/${customerId}`)
     };
 
     handlePagination = (pagination) => {
@@ -76,9 +78,28 @@ class CustomersContainer extends Component {
     };
 
     handleFilterCustomers = (filters) => {
-        const { dispatch, sort } = this.props;
-        const {fetchCustomers, DEFAULT_PAGINATION} = CustomerAction;
-        dispatch(fetchCustomers(DEFAULT_PAGINATION, sort, filters));
+        const { dispatch, sorts } = this.props;
+        const { fetchCustomers, DEFAULT_PAGINATION } = CustomerAction;
+        dispatch(fetchCustomers(DEFAULT_PAGINATION, sorts, filters));
+
+        this.unloadSelectedCustomer();
+    };
+
+    unloadSelectedCustomer = () => {
+        const { dispatch, history, match } = this.props;
+        const { updateSelectedCustomer, updateColumns, showCustomerDetail} = CustomerAction;
+        dispatch(updateSelectedCustomer());
+        dispatch(updateColumns());
+        dispatch(showCustomerDetail(false));
+        history.push(match.path);
+    };
+
+    loadSelectedCustomer = (customerId) => {
+        const { dispatch, selectedCustomer } = this.props;
+        if(!selectedCustomer || customerId !== selectedCustomer.id) {
+            dispatch(CustomerAction.selectCustomer(customerId));
+            dispatch(NoteAction.fetchNotes(customerId, NoteAction.DEFAULT_PAGINATION))
+        }
     }
 }
 
@@ -86,6 +107,7 @@ function mapStateToProps(state) {
     const {
         items,
         selected: selectedCustomer,
+        showCustomerDetail,
         columns,
         filters,
         sorts,
@@ -96,6 +118,7 @@ function mapStateToProps(state) {
     return {
         items,
         selectedCustomer,
+        showCustomerDetail,
         columns,
         filters,
         sorts,
@@ -104,4 +127,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(CustomersContainer)
+export default connect(mapStateToProps)(CustomerContainer)

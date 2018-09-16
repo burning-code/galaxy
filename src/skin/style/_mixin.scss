@@ -1,0 +1,48 @@
+@mixin navbar-sidebar() {
+  @media (min-width: $screen-sm-min) {
+    width: $navbar-sidebar-width;
+    height: 100vh;
+    border-radius: 0;
+
+    .container,
+    .container-fluid {
+      padding-right: 0;
+      padding-left: 0;
+      width: auto;
+    }
+
+    .navbar-header {
+      float: none;
+      padding-left: $navbar-padding-horizontal;
+      padding-right: $navbar-padding-horizontal;
+    }
+
+    .navbar-collapse {
+      padding-right: 0;
+      padding-left: 0;
+      max-height: none;
+
+      .navbar-nav {
+        float: none !important;
+
+        > li {
+          width: 100%;
+
+          &.dropdown {
+            .dropdown-menu {
+              top: 0;
+            }
+          }
+
+        }
+
+        &.navbar-right {
+          margin-right: 0;
+        }
+
+      }
+
+    }
+
+  }
+}

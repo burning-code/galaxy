@@ -1,55 +1,8 @@
-@import "~bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss";
-@import "_bootstrap.scss";
-@import "_variable";
-
-@mixin navbar-sidebar() {
-@media (min-width: $screen-sm-min) {
-  width: $navbar-sidebar-width;
-  height: 100vh;
-  border-radius: 0;
-
-  .container,
-  .container-fluid {
-    padding-right: 0;
-    padding-left: 0;
-    width: auto;
-  }
-
-  .navbar-header {
-    float: none;
-    padding-left: $navbar-padding-horizontal;
-    padding-right: $navbar-padding-horizontal;
-  }
-
-  .navbar-collapse {
-    padding-right: 0;
-    padding-left: 0;
-    max-height: none;
-
-    .navbar-nav {
-      float: none !important;
-
-      > li {
-        width: 100%;
-
-        &.dropdown {
-          .dropdown-menu {
-            top: 0;
-          }
-        }
-
-      }
-
-      &.navbar-right {
-        margin-right: 0;
-      }
-
-    }
-
-  }
-
-}
-}
+@import "variable";
+@import "bootstrap";
+@import "mixin";
+@import "../fa/fontawesome";
+@import "../fa/solid";
 
 // Adjust .container width
 .container {
@@ -67,8 +20,27 @@
   }
 }
 
-.jumbotron {
-  h2 {
-    margin-top: 0;
+.pagination-wrapper { text-align: center; }
+
+.pagination {
+  margin: 8px 0;
+
+  a {
+    user-select: none;
+    cursor: pointer;
+  }
+}
+
+
+.table {
+  > thead > tr > th, > tbody > tr > td {
+    font-weight: 300;
+    padding: 12px;
+  }
+
+  > thead > tr > th {
+    text-transform: capitalize;
+    border-bottom: 1px;
+    font-weight: 500;
   }
 }

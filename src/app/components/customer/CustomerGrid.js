@@ -1,22 +1,27 @@
 import React, {Component} from 'react'
-import {CustomerBL} from '../../helpers'
 import moment from 'moment'
+import {_} from '../../core'
+import {CustomerBL} from '../../helpers'
+import {Pagination} from "../common";
 
-class CustomersGrid extends Component {
+class CustomerGrid extends Component {
     render() {
-        const {selectedCustomer, customers} = this.props;
+        const { selectedCustomer, customers, pagination, handlePagination, narrow } = this.props;
 
         return (
             this.showCustomers() ? (
-                <div className="customers-grid">
-                    <table>
+                <div className={`customer-grid ${narrow ? 'narrow' : ''}`}>
+                    <table className="table table-hover">
                         <thead>
-                            {this.renderCustomerHeader()}
+                            {this.renderCustomerHeader(narrow)}
                         </thead>
                         <tbody>
-                            {this.renderCustomerRow(customers, selectedCustomer)}
+                            {this.renderCustomerRow(customers, selectedCustomer, narrow)}
                         </tbody>
                     </table>
+                    <div className="pagination-wrapper">
+                        <Pagination pagination={pagination} handlePagination={handlePagination} size={5}/>
+                    </div>
                 </div>
             ) : <div>There is not any customers, click here to create.</div>
         );
@@ -26,32 +31,53 @@ class CustomersGrid extends Component {
         return this.props.customers.length !== 0;
     }
 
-    renderCustomerHeader() {
-        const {columns} = this.props;
+    renderCustomerHeader(narrow) {
+        const {columns, sorts} = this.props;
 
         return (
             <tr>
                 {
                     columns.map(column => (
-                        <th onClick={e => this.handleSortCustomers(column)}>{column}</th>
+                        <th className={sortBy(column)} key={column} onClick={e => this.handleSortCustomers(column)}>
+                            {column}
+                        </th>
                     ))
                 }
-                <th>Action</th>
+                { narrow || (<th>Actions</th>) }
             </tr>
         );
+
+        function sortBy(column) {
+            if(sorts._sort === column) {
+                return sorts._order;
+            }
+        }
     }
 
-    renderCustomerRow(customers, selectedCustomer) {
+    renderCustomerRow(customers, selectedCustomer, narrow) {
         return customers.map(customer => (
-            <tr key={customer.id}
+            <tr key={customer.id} className={isActive(customer) ? 'active' : ''}
                 onClick={e => this.props.handleSelectCustomer(customer.id)}
             >
                 <td>{customer.name}</td>
                 <td>{CustomerBL.getCustomerStatusText(customer.status)}</td>
-                <td>{moment(customer.created).format('MM/DD/YYYY HH:mm')}</td>
-                <td><a href="#">Edit</a>&nbsp;&nbsp;<a href="#">Delete</a></td>
+                { narrow || (<td>{moment(customer.created).format('MM/DD/YYYY HH:mm')}</td>) }
+                { narrow || this.renderAction(customer) }
             </tr>
         ));
+
+        function isActive(customer) {
+            return !_.isEmpty(selectedCustomer) && selectedCustomer.id === customer.id;
+        }
+    }
+
+    renderAction(customer) {
+        return (
+            <td>
+                <button onClick={e => this.handleEdit(e, customer)}>Edit</button>&nbsp;&nbsp;
+                <button onClick={e => this.handleDelete(e, customer)}>Delete</button>
+            </td>
+        )
     }
 
     handleSortCustomers = (column) => {
@@ -73,7 +99,17 @@ class CustomersGrid extends Component {
         }
     };
 
+    // TODO implement
+    handleEdit(event, customer) {
+        console.log('Edit', customer);
+        event.stopPropagation();
+    }
 
+    // TODO implement
+    handleDelete(event, customer) {
+        console.log('Delete', customer);
+        event.stopPropagation();
+    }
 }
 
-export default CustomersGrid
+export default CustomerGrid

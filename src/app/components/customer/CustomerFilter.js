@@ -6,8 +6,11 @@ const ALL = 'ALL';
 class Customer extends Component {
     render() {
         return (
-            <div>
-                {this.renderStatusFilter()}
+            <div className="customer-filter">
+                <div className="filter-block">
+                    <label>Status</label>
+                    {this.renderStatusFilter()}
+                </div>
             </div>
         );
     }
@@ -27,8 +30,8 @@ class Customer extends Component {
     renderStatusOptions() {
         let options = Object
             .entries({
-                ...CustomerBL.CustomerStatus,
-                [ALL]: ALL
+                [ALL]: ALL,
+                ...CustomerBL.CustomerStatus
             })
             .map(([key, status]) => (
                 <option key={status} value={status}>{CustomerBL.getCustomerStatusText(status)}</option>

@@ -1,38 +1,35 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NoteAction } from '../../../store/index'
-import NoteList from './NoteList'
-import Pagination from '../Pagination'
-import AddNotePanel from './AddNotePanel'
+import { NoteAction } from '../../store/index'
+import {Pagination, AddNotePanel, NoteList} from '../common'
 
-class NoteContainer extends Component {
-
-    // componentDidMount() {
-    //     const { dispatch, customer } = this.props;
-    //     dispatch(NoteAction.fetchNotes(customer.id, NoteAction.DEFAULT_PAGINATION))
-    // }
+class CustomerNotesContainer extends Component {
 
     handleAddNote = (note) => {
-        const { dispatch , customerId} = this.props;
+        const { dispatch , customer} = this.props;
         dispatch(NoteAction.addNote({
             ...note,
-            customerId
+            customerId: customer.id,
+            authorId: 1,
+            created: Date.now()
         }))
     };
 
     handlePagination = (pagination) => {
-        const { dispatch, customerId } = this.props;
-        dispatch(NoteAction.fetchNotes(customerId, pagination));
+        const { dispatch, customer } = this.props;
+        dispatch(NoteAction.fetchNotes(customer.id, pagination));
     };
 
     render() {
-        const {customerId, items: notes, pagination } = this.props;
+        const {customer, items: notes, pagination } = this.props;
 
         return (
-            <div>
-                <AddNotePanel customerId={customerId} handleAddNote={this.handleAddNote}/>
+            <div className="notes-container">
+                <AddNotePanel customerId={customer.id} handleAddNote={this.handleAddNote}/>
                 <NoteList notes={notes} />
-                <Pagination pagination={pagination} handlePagination={this.handlePagination} size={5}/>
+                <div className="pagination-wrapper">
+                    <Pagination pagination={pagination} handlePagination={this.handlePagination} size={5}/>
+                </div>
             </div>
         )
     }
@@ -45,16 +42,11 @@ function mapStateToProps(state) {
         isFetching
     } = state.notes;
 
-    const {
-        selected: customer
-    } = state.customers;
-
     return {
-        customer,
         items,
         pagination,
         isFetching
     };
 }
 
-export default connect(mapStateToProps)(NoteContainer)
+export default connect(mapStateToProps)(CustomerNotesContainer)

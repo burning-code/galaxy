@@ -6,13 +6,11 @@
 
 // Core variables and mixins
 //@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "~bootswatch/yeti/variables";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
 // Reset and dependencies
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/print";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
 
 // Core CSS
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
@@ -35,7 +33,6 @@
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/pager";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/labels";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/badges";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/alerts";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
@@ -43,14 +40,6 @@
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/list-group";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/panels";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/wells";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/close";
-
-// Components w/ JavaScript
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/modals";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/popovers";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/carousel";
 
 // Utility classes
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
