@@ -1,5 +1,1 @@
-import * as CustomerBL from './CustomerBL'
-
-export {
-    CustomerBL
-}
+export * as CustomerBL from './CustomerBL'

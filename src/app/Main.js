@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {Route} from 'react-router-dom'
-import Sidebar from './app/components/navbar/Sidebar'
-import CustomerContainer from './app/components/customer/CustomerContainer'
+import Sidebar from './components/navbar/Sidebar'
+import CustomerContainer from './components/customer/CustomerContainer'
 
-class App extends Component {
+class Main extends Component {
   render() {
     return (
       <div>
@@ -19,4 +19,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;
