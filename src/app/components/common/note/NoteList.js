@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { moment } from '../../../core'
 import { NoteBL } from '../../../helpers'
 import defaultAvatar from '../../../../skin/image/default_avatar.png'
 
