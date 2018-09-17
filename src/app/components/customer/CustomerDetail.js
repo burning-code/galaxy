@@ -23,7 +23,7 @@ class CustomerDetail extends Component {
         const customerId = newProps.match.params.customerId;
         const { customer } = this.props;
 
-        if(customer && customerId != customer.id) {
+        if(customer && customerId !== customer.id) {
             this.loadSelectedCustomer(customerId);
         }
     }
@@ -107,7 +107,7 @@ class CustomerDetail extends Component {
     };
 
     unloadSelectedCustomer = () => {
-        const { dispatch, history, match } = this.props;
+        const { dispatch, history } = this.props;
         const { updateSelectedCustomer, updateColumns, showCustomerDetail} = CustomerAction;
         dispatch(updateSelectedCustomer());
         dispatch(updateColumns());
