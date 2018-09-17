@@ -20,10 +20,10 @@ class CustomerDetail extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-        const customerId = newProps.match.params.customerId;
+        const customerId = parseInt(newProps.match.params.customerId, 10);
         const { customer } = this.props;
 
-        if(customer && customerId !== customer.id) {
+        if(customer && (customerId !== customer.id)) {
             this.loadSelectedCustomer(customerId);
         }
     }
