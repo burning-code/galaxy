@@ -53,13 +53,14 @@ export function setCustomerStatus(customerId, status) {
         return patch(`/customers/${customerId}`,{
             id: customerId,
             status
-        }).then(customer => {
+        }).then(resp => {
+            const { data: customer } = resp;
             dispatch(receiveCustomer(customer));
 
             /*
              * In case the function be called out of customer details
              */
-            if(selectedCustomer != null && selectedCustomer.id === customer) {
+            if(selectedCustomer != null && selectedCustomer.id === customer.id) {
                 dispatch(updateSelectedCustomer(customer))
             }
         }, error => {
