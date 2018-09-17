@@ -49,7 +49,7 @@ class CustomerContainer extends Component {
 
     handleChangeCustomerStatus = (customer, nextStatus) => {
         const { dispatch } = this.props;
-        const {id, status} = customer;
+        const { id, status } = customer;
 
         if(nextStatus !== status) {
             dispatch(CustomerAction.setCustomerStatus(id, nextStatus))

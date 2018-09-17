@@ -12,7 +12,7 @@ class NoteList extends Component {
     }
 
     renderNoteRow() {
-        const {notes} = this.props;
+        const { notes } = this.props;
 
         return notes.map(note =>(
             <li key={note.id}>

@@ -18,7 +18,7 @@ class AddNotePanel extends Component {
     };
 
     handleAddNote = () => {
-        const {handleAddNote} = this.props;
+        const { handleAddNote } = this.props;
         const note = this.note.value;
         if(note.trim() !== '') {
             handleAddNote({

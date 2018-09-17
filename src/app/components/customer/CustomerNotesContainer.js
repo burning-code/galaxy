@@ -21,7 +21,7 @@ class CustomerNotesContainer extends Component {
     };
 
     render() {
-        const {customer, items: notes, pagination } = this.props;
+        const { customer, items: notes, pagination } = this.props;
 
         return (
             <div className="notes-container">

@@ -5,14 +5,14 @@ import CustomerNotesContainer from './CustomerNotesContainer'
 
 class CustomerDetail extends Component {
     componentDidMount() {
-        const {customer, loadSelectedCustomer, match} = this.props;
+        const { customer, loadSelectedCustomer, match } = this.props;
         if(!customer) {
             loadSelectedCustomer(match.params.customerId);
         }
     }
 
     render() {
-        const {customer, handleChangeCustomerStatus} = this.props;
+        const { customer, handleChangeCustomerStatus } = this.props;
 
         return (
             customer && !_.isEmpty(customer) && (

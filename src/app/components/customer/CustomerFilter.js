@@ -16,7 +16,7 @@ class Customer extends Component {
     }
 
     renderStatusFilter() {
-        const {filters} = this.props;
+        const { filters } = this.props;
         return (
             <select
                 onChange={e => this.handleFilterCustomers({key: 'status', value: e.target.value})}
@@ -40,7 +40,7 @@ class Customer extends Component {
     }
 
     handleFilterCustomers = ({key, value}) => {
-        const {handleFilterCustomers, filters} = this.props;
+        const { handleFilterCustomers, filters } = this.props;
         if(value === ALL) {
             delete filters[key];
             handleFilterCustomers(filters)

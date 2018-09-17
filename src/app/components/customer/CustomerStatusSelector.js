@@ -13,7 +13,7 @@ class CustomerStatusSelector extends Component {
     }
 
     renderOptions() {
-        let options = Object
+        const options = Object
             .entries(CustomerBL.CustomerStatus).map(([key, status]) => (
                 <option key={status} value={status}>{CustomerBL.getCustomerStatusText(status)}</option>
             ));

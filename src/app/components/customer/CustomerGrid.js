@@ -31,7 +31,7 @@ class CustomerGrid extends Component {
     }
 
     renderCustomerHeader(narrow) {
-        const {columns, sorts} = this.props;
+        const { columns, sorts } = this.props;
 
         return (
             <tr>
@@ -80,7 +80,7 @@ class CustomerGrid extends Component {
     }
 
     handleSortCustomers = (column) => {
-        const {sorts, handleSortCustomers} = this.props;
+        const { sorts, handleSortCustomers } = this.props;
         if(sorts._sort === column) {
             handleSortCustomers({
                 ...sorts,
