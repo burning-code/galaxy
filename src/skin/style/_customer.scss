@@ -57,6 +57,15 @@
       cursor: pointer;
     }
 
+    th:last-child {
+      display: none;
+      cursor: text;
+    }
+
+    td:last-child {
+      display: none;
+    }
+
     @media (min-width: $screen-sm-min) {
       th:first-child {
         width: 160px;
@@ -65,15 +74,6 @@
       th:last-child, td:last-child {
         display: table-cell;
       }
-    }
-
-    th:last-child {
-      display: none;
-      cursor: text;
-    }
-
-    td:last-child {
-      display: none;
     }
 
     .asc:after {
@@ -126,6 +126,7 @@
     border-top-right-radius: $border-radius-base;
     padding: $spacing-md;
 
+    .close { font-size: 14px; }
     .close:after {
       float: right;
       @extend %fa-icon;
