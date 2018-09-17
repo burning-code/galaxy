@@ -1,25 +1,42 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {_, moment} from '../../core'
 import CustomerStatusSelector from './CustomerStatusSelector'
 import CustomerNotesContainer from './CustomerNotesContainer'
+import {CustomerAction, NoteAction} from '../../store'
+
 
 class CustomerDetail extends Component {
     componentDidMount() {
-        const { customer, loadSelectedCustomer, match } = this.props;
-        if(!customer) {
-            loadSelectedCustomer(match.params.customerId);
+        const customerId = this.props.match.params.customerId;
+
+        if(customerId) {
+            this.loadSelectedCustomer(customerId);
+        }
+    }
+
+    componentWillUnmount() {
+        this.unloadSelectedCustomer();
+    }
+
+    componentWillReceiveProps(newProps) {
+        const customerId = newProps.match.params.customerId;
+        const { customer } = this.props;
+
+        if(customer && customerId != customer.id) {
+            this.loadSelectedCustomer(customerId);
         }
     }
 
     render() {
-        const { customer, handleChangeCustomerStatus } = this.props;
+        const { customer } = this.props;
 
         return (
-            customer && !_.isEmpty(customer) && (
+            customer && !_.isEmpty(customer) ? (
                 <div className="customer-detail">
                     <div className="customer-detail-header">
                         {customer.name}
-                        <span className="close" onClick={() => this.handleClose()} />
+                        <span className="close" onClick={() => this.unloadSelectedCustomer()} />
                     </div>
                     <div className="customer-detail-body">
                         <div className="customer-detail-blocks">
@@ -62,22 +79,53 @@ class CustomerDetail extends Component {
                                 <label>Status</label>
                                 <CustomerStatusSelector
                                     customer={customer}
-                                    handleChangeCustomerStatus={handleChangeCustomerStatus}
+                                    handleChangeCustomerStatus={this.handleChangeCustomerStatus}
                                 />
                             </div>
                         </div>
                         <h5>Notes</h5>
-                        <CustomerNotesContainer customer={customer}/>
+                        <CustomerNotesContainer />
                     </div>
                 </div>
-            )
+            ) : null
         );
     }
 
-    handleClose() {
-        const { unloadSelectedCustomer } = this.props;
-        unloadSelectedCustomer();
-    }
+    handleChangeCustomerStatus = (customer, nextStatus) => {
+        const { dispatch } = this.props;
+        const { id, status } = customer;
+
+        if(nextStatus !== status) {
+            dispatch(CustomerAction.setCustomerStatus(id, nextStatus))
+        }
+    };
+
+    loadSelectedCustomer = (customerId) => {
+        const { dispatch } = this.props;
+        dispatch(CustomerAction.selectCustomer(customerId));
+        dispatch(NoteAction.fetchNotes(customerId));
+    };
+
+    unloadSelectedCustomer = () => {
+        const { dispatch, history, match } = this.props;
+        const { updateSelectedCustomer, updateColumns, showCustomerDetail} = CustomerAction;
+        dispatch(updateSelectedCustomer());
+        dispatch(updateColumns());
+        dispatch(showCustomerDetail(false));
+        history.push('/customer');
+    };
 }
 
-export default CustomerDetail
+function mapStateToProps(state) {
+    const {
+        selected: customer,
+        showCustomerDetail
+    } = state.customers;
+
+    return {
+        customer,
+        showCustomerDetail
+    };
+}
+
+export default connect(mapStateToProps)(CustomerDetail)

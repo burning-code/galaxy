@@ -4,6 +4,10 @@
 @import "../fa/fontawesome";
 @import "../fa/solid";
 
+html {
+  overflow-y: scroll;
+}
+
 // Adjust .container width
 .container {
   $size: sm md lg;

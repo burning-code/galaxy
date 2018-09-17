@@ -32,38 +32,19 @@ class CustomerContainer extends Component {
                     handleSortCustomers={this.handleSortCustomers}
                     handlePagination={this.handlePagination}
                 />
-                <Route path="/customer/:customerId" component={(props) => {
-                    return (
-                        <CustomerDetail
-                            {...props}
-                            customer={selectedCustomer}
-                            handleChangeCustomerStatus={this.handleChangeCustomerStatus}
-                            loadSelectedCustomer={this.loadSelectedCustomer}
-                            unloadSelectedCustomer={this.unloadSelectedCustomer}
-                        />
-                    )
-                }} />
+                <Route path="/customer/:customerId" component={CustomerDetail} />
             </div>
         )
     }
 
-    handleChangeCustomerStatus = (customer, nextStatus) => {
-        const { dispatch } = this.props;
-        const { id, status } = customer;
-
-        if(nextStatus !== status) {
-            dispatch(CustomerAction.setCustomerStatus(id, nextStatus))
-        }
-    };
 
     handleSelectCustomer = (customerId) => {
         const { history, match, dispatch, selectedCustomer } = this.props;
-        if(!selectedCustomer || customerId !== selectedCustomer.id) {
+        if(!selectedCustomer || selectedCustomer.id !== customerId) {
             dispatch(CustomerAction.selectCustomer(customerId));
-            dispatch(NoteAction.fetchNotes(customerId, NoteAction.DEFAULT_PAGINATION))
+            dispatch(NoteAction.fetchNotes(customerId));
+            history.push(`${match.path}/${customerId}`)
         }
-
-        history.push(`${match.path}/${customerId}`)
     };
 
     handlePagination = (pagination) => {
@@ -93,14 +74,6 @@ class CustomerContainer extends Component {
         dispatch(showCustomerDetail(false));
         history.push(match.path);
     };
-
-    loadSelectedCustomer = (customerId) => {
-        const { dispatch, selectedCustomer } = this.props;
-        if(!selectedCustomer || customerId !== selectedCustomer.id) {
-            dispatch(CustomerAction.selectCustomer(customerId));
-            dispatch(NoteAction.fetchNotes(customerId, NoteAction.DEFAULT_PAGINATION))
-        }
-    }
 }
 
 function mapStateToProps(state) {

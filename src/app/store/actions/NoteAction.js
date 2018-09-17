@@ -49,7 +49,7 @@ function receiveNotes(customerId, notes, pagination) {
     }
 }
 
-export function fetchNotes(customerId, pagination) {
+export function fetchNotes(customerId, pagination = DEFAULT_PAGINATION) {
     return dispatch => {
         dispatch(requestNotes(customerId, pagination));
         return get(`/notes`, {

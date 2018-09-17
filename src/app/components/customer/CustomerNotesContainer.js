@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NoteAction } from '../../store/index'
 import {Pagination, AddNotePanel, NoteList} from '../common'
+import {_} from "../../core";
 
 class CustomerNotesContainer extends Component {
-
     handleAddNote = (note) => {
         const { dispatch , customer} = this.props;
         dispatch(NoteAction.addNote({
@@ -23,7 +23,7 @@ class CustomerNotesContainer extends Component {
     render() {
         const { customer, items: notes, pagination } = this.props;
 
-        return (
+        return customer && !_.isEmpty(customer) && (
             <div className="notes-container">
                 <AddNotePanel customerId={customer.id} handleAddNote={this.handleAddNote}/>
                 <NoteList notes={notes} />
@@ -42,7 +42,12 @@ function mapStateToProps(state) {
         isFetching
     } = state.notes;
 
+    const {
+        selected: customer
+    } = state.customers;
+
     return {
+        customer,
         items,
         pagination,
         isFetching
