@@ -22,7 +22,7 @@ class CustomerGrid extends Component {
                         <Pagination pagination={pagination} handlePagination={handlePagination} size={5}/>
                     </div>
                 </div>
-            ) : <div>There is not any customers, click here to create.</div>
+            ) : <div className="no-customer">No customer to show. Please add a customer first.</div>
         );
     }
 
@@ -99,13 +99,13 @@ class CustomerGrid extends Component {
     };
 
     // TODO implement
-    handleEdit(event, customer) {
+    static handleEdit(event, customer) {
         console.log('Edit', customer);
         event.stopPropagation();
     }
 
     // TODO implement
-    handleDelete(event, customer) {
+    static handleDelete(event, customer) {
         console.log('Delete', customer);
         event.stopPropagation();
     }

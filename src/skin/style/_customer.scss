@@ -115,6 +115,11 @@
   }
 }
 
+.no-customer {
+  font-size: 15px;
+  font-weight: 300;
+}
+
 .customer-detail {
   @extend .panel;
   @extend .panel-default;

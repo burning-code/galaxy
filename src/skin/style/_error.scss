@@ -1,0 +1,28 @@
+.system-error {
+  @include make-row();
+  @extend .panel;
+  @extend .panel-danger;
+  border-color: $border-error;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-bottom: 0;
+  margin-top: $spacing-md;
+
+  .system-error-heading {
+    @extend .panel-heading;
+    background-color: $background-error;
+    border-color: $border-error;
+    padding: $spacing-md;
+    font-weight: normal;
+    color: $text-error;
+  }
+
+  .system-error-body {
+    @extend .panel-body;
+    font-weight: 300;
+    padding: $spacing-md;
+    p{
+      margin-bottom: 0;
+    }
+  }
+}

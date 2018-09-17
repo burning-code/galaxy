@@ -1,5 +1,5 @@
-import {get, post} from "../../core"
-
+import { get, post } from '../../core'
+import { addError } from './ErrorAction'
 /*
  * action types
  */
@@ -25,9 +25,7 @@ export function addNote(note) {
     return (dispatch) => {
         return post(`/notes`, note).then(() => {
             dispatch(fetchNotes(note.customerId, DEFAULT_PAGINATION));
-        }, error => {
-            // TODO error handling
-        });
+        }, error => dispatch(addError(error)));
     }
 }
 
@@ -62,8 +60,6 @@ export function fetchNotes(customerId, pagination = DEFAULT_PAGINATION) {
                 ...pagination,
                 _total: resp.total
             }))
-        }, error => {
-            // TODO error handling
-        })
+        }, error => dispatch(addError(error)))
     }
 }

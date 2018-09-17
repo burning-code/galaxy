@@ -1,4 +1,5 @@
 import {get, patch} from '../../core'
+import { addError } from './ErrorAction';
 
 /*
  * action types
@@ -63,9 +64,7 @@ export function setCustomerStatus(customerId, status) {
             if(selectedCustomer != null && selectedCustomer.id === customer.id) {
                 dispatch(updateSelectedCustomer(customer))
             }
-        }, error => {
-            // TODO error handling
-        });
+        }, error => dispatch(addError(error)));
     }
 }
 
@@ -97,9 +96,7 @@ export function selectCustomer(customerId) {
                 dispatch(updateSelectedCustomer(resp.data));
                 dispatch(updateColumns(COLUMNS_NARROW));
                 dispatch(showCustomerDetail(true))
-            }, error => {
-                // TODO error handling
-            })
+            }, error => dispatch(addError(error)))
     }
 }
 
@@ -135,9 +132,7 @@ export function fetchCustomers(pagination, sorts, filters) {
                 ...pagination,
                 _total: resp.total
             }, sorts, filters))
-        }, error => {
-            // TODO error handling
-        })
+        }, error => dispatch(addError(error)))
     }
 }
 
