@@ -10,18 +10,17 @@ import {
     SHOW_CUSTOMER_DETAIL
 } from '../actions/CustomerAction'
 
-function updatedCustomerItems(state = [], action) {
-    switch (action.type) {
-        case RECEIVE_CUSTOMER:
-            return state.map((customer) => {
-                if (customer.id === action.customer.id) {
-                    return action.customer
-                }
-                return customer
-            });
-        default:
-            return state;
+function receiveCustomer(state = [], action) {
+    if(action.type === RECEIVE_CUSTOMER) {
+        return state.map((customer) => {
+            if (customer.id === action.customer.id) {
+                return action.customer
+            }
+            return customer
+        });
     }
+
+    return state;
 }
 
 function customerReducer(
@@ -59,7 +58,7 @@ function customerReducer(
         case RECEIVE_CUSTOMER:
             return {
                 ...state,
-                items: updatedCustomerItems(state.items, action)
+                items: receiveCustomer(state.items, action)
             };
         case UPDATE_SELECTED_CUSTOMER:
             return {

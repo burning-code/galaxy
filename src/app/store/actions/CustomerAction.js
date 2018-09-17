@@ -53,15 +53,18 @@ export function setCustomerStatus(customerId, status) {
         return patch(`/customers/${customerId}`,{
             id: customerId,
             status
-        }).then(
-            customer => {
-                dispatch(receiveCustomer(customer));
+        }).then(customer => {
+            dispatch(receiveCustomer(customer));
 
-                if(selectedCustomer != null) {
-                    dispatch(updateSelectedCustomer(customer))
-                }
+            /*
+             * In case the function be called out of customer details
+             */
+            if(selectedCustomer != null && selectedCustomer.id === customer) {
+                dispatch(updateSelectedCustomer(customer))
             }
-        );
+        }, error => {
+            // TODO error handling
+        });
     }
 }
 
@@ -88,12 +91,13 @@ function receiveCustomer(customer) {
 
 export function selectCustomer(customerId) {
     return dispatch => {
-        return get(`/customers/${customerId}`)
-            .then(resp => {
+        return get(`/customers/${customerId}`).then(resp => {
                 dispatch(receiveCustomer(resp.data));
                 dispatch(updateSelectedCustomer(resp.data));
                 dispatch(updateColumns(COLUMNS_NARROW));
                 dispatch(showCustomerDetail(true))
+            }, error => {
+                // TODO error handling
             })
     }
 }
@@ -125,14 +129,14 @@ export function fetchCustomers(pagination, sorts, filters) {
             ...pagination,
             ...sorts,
             ...filters
-        }).then(
-            resp => {
-                dispatch(receiveCustomers(resp.data, {
-                    ...pagination,
-                    _total: resp.total
-                }, sorts, filters))
-            }
-        )
+        }).then(resp => {
+            dispatch(receiveCustomers(resp.data, {
+                ...pagination,
+                _total: resp.total
+            }, sorts, filters))
+        }, error => {
+            // TODO error handling
+        })
     }
 }
 

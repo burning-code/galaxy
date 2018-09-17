@@ -23,11 +23,11 @@ export const DEFAULT_PAGINATION = {
 
 export function addNote(note) {
     return (dispatch) => {
-        return post(`/notes`, note).then(
-            () => {
-                dispatch(fetchNotes(note.customerId, DEFAULT_PAGINATION));
-            }
-        );
+        return post(`/notes`, note).then(() => {
+            dispatch(fetchNotes(note.customerId, DEFAULT_PAGINATION));
+        }, error => {
+            // TODO error handling
+        });
     }
 }
 
@@ -57,13 +57,13 @@ export function fetchNotes(customerId, pagination) {
             ...pagination,
             _sort: 'created,id',
             _order: 'desc,desc'
-        }).then(
-            resp => {
-                dispatch(receiveNotes(customerId, resp.data, {
-                    ...pagination,
-                    _total: resp.total
-                }))
-            }
-        )
+        }).then(resp => {
+            dispatch(receiveNotes(customerId, resp.data, {
+                ...pagination,
+                _total: resp.total
+            }))
+        }, error => {
+            // TODO error handling
+        })
     }
 }
