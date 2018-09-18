@@ -73,8 +73,8 @@ class CustomerGrid extends Component {
     renderAction(customer) {
         return (
             <td>
-                <button onClick={e => this.handleEdit(e, customer)}>Edit</button>&nbsp;&nbsp;
-                <button onClick={e => this.handleDelete(e, customer)}>Delete</button>
+                <button className="link" onClick={e => this.handleEdit(e, customer)}>Edit</button>&nbsp;&nbsp;
+                <button className="link" onClick={e => this.handleDelete(e, customer)}>Delete</button>
             </td>
         )
     }

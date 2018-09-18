@@ -1,9 +1,11 @@
-import { get, post } from '../../core'
+import { get, post, patch } from '../../core'
 import { addError } from './ErrorAction'
 /*
  * action types
  */
 
+export const EDIT_NOTE = 'EDIT_NOTE';
+export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REQUEST_NOTES = 'REQUEST_NOTES';
 export const RECEIVE_NOTES = 'RECEIVE_NOTES';
@@ -26,6 +28,29 @@ export function addNote(note) {
         return post(`/notes`, note).then(() => {
             dispatch(fetchNotes(note.customerId, DEFAULT_PAGINATION));
         }, error => dispatch(addError(error)));
+    }
+}
+
+export function updateNote(note) {
+    return (dispatch) => {
+        return patch(`/notes/${note.id}`, note).then(() => {
+            dispatch(fetchNotes(note.customerId, DEFAULT_PAGINATION));
+            dispatch(cancelEditNote());
+        }, error => dispatch(addError(error)));
+    }
+}
+
+export function editNote(note) {
+    return {
+        type: EDIT_NOTE,
+        note
+    }
+}
+
+export function cancelEditNote() {
+    return {
+        type: EDIT_NOTE,
+        note: null
     }
 }
 

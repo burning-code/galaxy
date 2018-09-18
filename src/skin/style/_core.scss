@@ -52,3 +52,21 @@ html {
 .navbar {
   margin-bottom: 5px;
 }
+
+button.link {
+  background:none!important;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  color: $link-color;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: $link-hover-decoration;
+    color: $link-hover-color;
+  }
+}
+
+.modal-header, .model-body, .modal-footer {
+  padding: $spacing-md;
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import Sidebar from './components/navbar/Sidebar'
 import CustomerContainer from './components/customer/CustomerContainer'
-import { SystemError } from './components/common'
+import { SystemError, Popup } from './components/common'
 
 class Main extends Component {
   render() {

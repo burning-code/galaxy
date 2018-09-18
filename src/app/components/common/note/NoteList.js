@@ -11,9 +11,13 @@ class NoteList extends Component {
         );
     }
 
-    /* TODO change to note.user.avatar && note.user.dispalyName */
+    /* TODO
+     * 1. change to note.user.avatar && note.user.dispalyName
+     * 2. Pass isAuthor from parent
+     */
     renderNoteRow() {
-        const { notes } = this.props;
+        const { notes, editNote } = this.props;
+        const isAuthor = true;
 
         return notes.map(note =>(
             <li key={note.id}>
@@ -23,6 +27,7 @@ class NoteList extends Component {
                     <span className="created-time">{ NoteBL.formatNoteCreatedTime(note.created)}</span>
                 </p>
                 <p>{note.text}</p>
+                { editNote && isAuthor && <p><button className="link" onClick={e => editNote(note)}>Edit</button></p> }
             </li>
         ));
     }

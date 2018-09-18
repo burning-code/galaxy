@@ -62,6 +62,10 @@
       cursor: text;
     }
 
+    td {
+      word-wrap: break-word;
+    }
+
     td:last-child {
       display: none;
     }
@@ -97,20 +101,6 @@
 
     td {
       cursor: pointer;
-    }
-
-    button {
-      background:none!important;
-      border:none;
-      padding:0!important;
-      font: inherit;
-      color: $link-color;
-      cursor: pointer;
-
-      &:hover {
-        text-decoration: $link-hover-decoration;
-        color: $link-hover-color;
-      }
     }
   }
 }

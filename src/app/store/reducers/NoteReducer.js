@@ -1,4 +1,5 @@
 import {
+    EDIT_NOTE,
     RECEIVE_NOTES,
     DEFAULT_PAGINATION
 } from '../actions/NoteAction'
@@ -7,9 +8,15 @@ function notesReducer(state = {
     customerId: null,
     items: [],
     isFetching: false,
-    pagination: DEFAULT_PAGINATION
+    pagination: DEFAULT_PAGINATION,
+    editingNote: null
 }, action) {
     switch (action.type) {
+        case EDIT_NOTE:
+            return {
+                ...state,
+                editingNote: action.note
+            };
         case RECEIVE_NOTES:
             return {
                 ...state,

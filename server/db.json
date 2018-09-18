@@ -347,11 +347,25 @@
       "id": 35
     },
     {
-      "text": "asdfsfasdfadsfasd",
+      "text": "test editing",
       "customerId": 11,
       "authorId": 1,
-      "created": 1537163556137,
+      "created": 1537253800225,
       "id": 36
+    },
+    {
+      "text": "test adding after refactoring hallo~",
+      "customerId": 11,
+      "authorId": 1,
+      "created": 1537254008446,
+      "id": 37
+    },
+    {
+      "text": "asdfffffffsafafasasdfffffffsafafasasdfffffffsafafasasdfffffffsafafasasdfffffffsafafasasdfffffffsafafasasdfffffffsafafasasdfffffffsafafasasdfffffffsafafasasdfffffffsafafasasdfffffffsafafas",
+      "customerId": 11,
+      "authorId": 1,
+      "created": 1537254023059,
+      "id": 38
     }
   ],
   "users": [
