@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import { SystemError } from './components/common'
 import Sidebar from './components/navbar/Sidebar'
+import Home from './components/home/Home'
 import CustomerContainer from './components/customer/CustomerContainer'
-import { SystemError, Popup } from './components/common'
+
 
 class Main extends Component {
   render() {
@@ -10,10 +12,8 @@ class Main extends Component {
       <div>
           <Sidebar/>
           <div className={'container'}>
-              <SystemError errors={['1', '2', '3']} />
-              <Route exact path="/" render={() => (
-                  <h3>Welcome to Galaxy Customer Management System!</h3>
-              )} />
+              <SystemError />
+              <Route exact path="/" component={Home} />
               <Route path="/customer" component={CustomerContainer} />
           </div>
       </div>

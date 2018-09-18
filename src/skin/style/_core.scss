@@ -70,3 +70,14 @@ button.link {
 .modal-header, .model-body, .modal-footer {
   padding: $spacing-md;
 }
+
+.home {
+  ul {
+    padding-left: 20px;
+    > li {
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 180%;
+    }
+  }
+}
