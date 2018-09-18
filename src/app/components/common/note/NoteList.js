@@ -11,6 +11,7 @@ class NoteList extends Component {
         );
     }
 
+    /* TODO change to note.user.avatar && note.user.dispalyName */
     renderNoteRow() {
         const { notes } = this.props;
 

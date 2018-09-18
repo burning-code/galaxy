@@ -21,13 +21,29 @@ npm start
 Then open [http://localhost:3000/](http://localhost:3000/) to see the application.<br>
 When you’re ready to deploy to production, create a minified bundle with `npm run build`.
 
+To run tests, run:
+
+```sh
+npm test
+```
+
+To build for production, run:
+
+```sh
+npm build
+```
+
+<b>The API server are ONLY used for development.</b>
+
 #### API Server Configuration
 
 For developing, [json-server](https://github.com/typicode/json-server) is used as the API server.
 
-It uses a .json file as database, in this project, it's under /server directory.
+It uses a `.json` file as database, in this project, it's under `/server` directory.
 
-Server configuration is in /scripts/start-json-server.js.
+Server configuration is in `/scripts/start-json-server.js`.
+
+You can easily edit data in `/server/db.js` to update the data for testing. <b>Remember to restart server after change data manually!</b>
 
 For more information about [json-server](https://github.com/typicode/json-server), please visit it's website.
 
@@ -144,5 +160,5 @@ Since the application is bootstrapped with [create-react-app](https://github.com
 }
 ```
 
-##### Test & Debug System Error
+##### A little tip to show the system error messages
 To test the system error message UI, you can shutdown API server, refresh the page.
