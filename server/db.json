@@ -7,7 +7,7 @@
       "phone": "02102110211",
       "email": "mercury@milkyway.com",
       "status": "NON_ACTIVE",
-      "created": 1534442400
+      "created": 1537208456670
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "phone": "02102110212",
       "email": "venus@milkyway.com",
       "status": "CURRENT",
-      "created": 1534442400
+      "created": 1537258451670
     },
     {
       "id": 3,
@@ -24,8 +24,8 @@
       "address": "371 Milky Way",
       "phone": "02102110213",
       "email": "mars@milkyway.com",
-      "status": "NON_ACTIVE",
-      "created": 1534442400
+      "status": "CURRENT",
+      "created": 1537256456670
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "phone": "02102110213",
       "email": "earth@milkyway.com",
       "status": "CURRENT",
-      "created": 1534442400
+      "created": 1537222456000
     },
     {
       "id": 5,
@@ -43,7 +43,7 @@
       "phone": "02102110213",
       "email": "jupiter@milkyway.com",
       "status": "NON_ACTIVE",
-      "created": 1534442400
+      "created": 1533253456070
     },
     {
       "id": 6,
@@ -52,7 +52,7 @@
       "phone": "02102110213",
       "email": "saturn@milkyway.com",
       "status": "CURRENT",
-      "created": 1534442400
+      "created": 1535258466670
     },
     {
       "id": 7,
@@ -61,7 +61,7 @@
       "phone": "02102110213",
       "email": "uranus@milkyway.com",
       "status": "CURRENT",
-      "created": 1534442400
+      "created": 1535258411170
     },
     {
       "id": 8,
@@ -70,7 +70,7 @@
       "phone": "02102110213",
       "email": "neptune@milkyway.com",
       "status": "NON_ACTIVE",
-      "created": 1534442400
+      "created": 1535258222670
     },
     {
       "id": 9,
@@ -79,7 +79,7 @@
       "phone": "02102110213",
       "email": "altair@universe.com",
       "status": "NON_ACTIVE",
-      "created": 1534442400
+      "created": 1535253336670
     },
     {
       "id": 10,
@@ -88,7 +88,7 @@
       "phone": "02102110213",
       "email": "deneb@universe.com",
       "status": "CURRENT",
-      "created": 1534442400
+      "created": 1535123466670
     },
     {
       "id": 11,
@@ -97,7 +97,7 @@
       "phone": "02102110213",
       "email": "sirius@universe.com",
       "status": "CURRENT",
-      "created": 1534442400
+      "created": 1535232166670
     },
     {
       "id": 12,
@@ -106,7 +106,7 @@
       "phone": "02102110213",
       "email": "vega@universe.com",
       "status": "CURRENT",
-      "created": 1534442400
+      "created": 1535111166670
     }
   ],
   "notes": [
@@ -116,6 +116,13 @@
       "authorId": 1,
       "created": 1537061697543,
       "id": 1
+    },
+    {
+      "text": "Hi Mars, how are you today. Sunshine baby",
+      "customerId": 3,
+      "authorId": 1,
+      "created": 1537258379871,
+      "id": 2
     }
   ],
   "users": [
