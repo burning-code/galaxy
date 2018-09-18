@@ -12,7 +12,7 @@ class AddNotePanel extends Component {
     }
 
     handleClearDraft = () => {
-        this.note.value = "";
+        this.noteText.value = "";
     };
 
     /*
