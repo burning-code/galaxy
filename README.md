@@ -116,7 +116,8 @@ Since the application is bootstrapped with [create-react-app](https://github.com
 	    "pagination": {
 		    "_page": 1,
 		    "_limit": 5
-		}
+		},
+		"editingNote": null
 	},
 	"errors": {
 	    "SYSTEM_ERROR": [],
@@ -141,7 +142,7 @@ Since the application is bootstrapped with [create-react-app](https://github.com
   ],
   "notes": [
     {
-      "text": "This book is required reading for anyone looking to get using D3. A mandatory introduction to a very complex and powerful library.",
+      "text": "This book is required reading for anyone looking to get using D3.",
       "customerId": 1,
       "authorId": 1,
       "created": 1537061697543,
@@ -153,7 +154,7 @@ Since the application is bootstrapped with [create-react-app](https://github.com
       "id": 1,
       "username": "jared.li",
       "displayName": "Jared Li",
-      "password": "test123!",
+      "password": "test_me",
       "avatar": "jared.li.png"
     }
   ]

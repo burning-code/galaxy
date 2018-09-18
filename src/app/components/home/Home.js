@@ -24,6 +24,7 @@ class Home extends Component {
                     <li>When showing narrow customer list, status could be showed as an small icon with different colors</li>
                     <li>Edit note button should be moved to another place</li>
                     <li>Edit note popup should be closed when click background</li>
+                    <li>Show a spinning image while loading data</li>
                 </ul>
             </div>
         );
