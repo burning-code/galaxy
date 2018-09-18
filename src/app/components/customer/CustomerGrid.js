@@ -99,13 +99,13 @@ class CustomerGrid extends Component {
     };
 
     // TODO implement
-    static handleEdit(event, customer) {
+    handleEdit(event, customer) {
         console.log('Edit', customer);
         event.stopPropagation();
     }
 
     // TODO implement
-    static handleDelete(event, customer) {
+    handleDelete(event, customer) {
         console.log('Delete', customer);
         event.stopPropagation();
     }
